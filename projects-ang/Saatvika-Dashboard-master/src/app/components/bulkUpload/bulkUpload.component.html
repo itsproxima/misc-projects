@@ -1,0 +1,33 @@
+ <app-header></app-header>
+<div class="header">
+    <h2> Bulk Product Upload</h2> 
+<!-- </div>
+ <section>
+    <div class="result">
+        <div class="row">
+            <div class="col-md-6">
+                    <input type="file" name="name" [(ngModel)]="name" (change)="fileChanged($event)">
+                    <div class="col-md-3 form-group" style="margin-top: -10px;">
+                        <button class="btn btn-default"(click)="bulkUpload()">Submit</button>
+                    </div>
+            </div>
+            <div class="col-md-6">
+        
+               
+            </div>
+            
+            
+        </div>
+    </div>
+</section>  -->
+
+<div class="container">
+    <h1>{{title}}</h1>
+    <div class="form-group file-upload">
+        <input type="file" id="selectFile" name="selectFile" class="btn" (change)="fileChanged($event)" />
+        <input type="button" class="btn btn-primary" (click)="bulkUpload()" value="uploadImage" />
+    </div>
+</div> 
+
+
+

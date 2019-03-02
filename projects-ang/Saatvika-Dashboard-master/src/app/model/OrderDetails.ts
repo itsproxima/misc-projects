@@ -1,0 +1,35 @@
+
+export class OrderDetails{
+    cartId:number;
+    orderNumber:string;
+    amount:any;
+    name:string;
+    mobileNumber:string;
+    address:string;
+    date:string;
+    status:number;
+    statusId:number;
+    isSeen:number;
+    door_no:string;
+    apartment_name:string;
+    road_name:string;
+    city:string;
+    pin:string;
+    constructor(){
+        this.cartId=0;
+        this.orderNumber=null;
+        this.amount=0.0;
+        this.name=null;
+        this.mobileNumber=null;
+        this.address=null;
+        this.date=null;
+        this.status=-1;
+        this.statusId=-1;
+        this.isSeen=-1;
+        this.door_no=null;
+        this.apartment_name=null;
+        this.road_name=null;
+        this.city=null;
+        this.pin=null;
+    }
+}

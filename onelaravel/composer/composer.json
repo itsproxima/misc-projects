@@ -1,0 +1,12 @@
+{
+    "name": "vendor/package",
+    "authors": [
+        {
+            "name": "itsproxima",
+            "email": "garnaik.sambit@gmail.com"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^0.7.0@dev"
+    }
+}

@@ -1,0 +1,18 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+  <!--/login-->
+    <div class="error_page">
+      <!--/login-top-->
+      <div class="error-top">
+        <h2 class="inner-tittle page">Saathvik</h2>
+          <div class="login">
+            <p style="font-size: 25px;">Login</p>
+              <form #f="ngForm" (ngSubmit)="authenticate(f)">
+                <input type="text" name="emailId" placeholder="Enter Your Email id" [(ngModel)]="emailId"  required>
+                <input type="password" name="password" placeholder="Enter Your Password"  [(ngModel)]="password" required>
+                <div class="submit"><input type="submit" value="Login"  ></div>
+                
+              </form>
+          </div>
+      </div>
+      <!--//login-top-->
+    </div>

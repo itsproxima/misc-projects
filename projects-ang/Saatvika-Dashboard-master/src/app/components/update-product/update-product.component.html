@@ -1,0 +1,318 @@
+<app-header></app-header>
+<div class="header">
+    <h2>Add Product</h2>
+</div>
+<section style="margin-left: 250px;">
+    <ul class="nav nav-tabs" style="margin-top: 50px;">
+        <li class="active">
+            <a data-toggle="tab" href="#home">Add Category</a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#subcat">Add SubCategory</a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#menu1">Update Category</a>
+        </li>
+        <!-- <li>
+            <a data-toggle="tab" href="#menu4">Update SubCategory</a>
+        </li> -->
+        <li>
+            <a data-toggle="tab" href="#menu2">Add Product</a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#menu3">Update Product</a>
+        </li>
+        
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label>Category Name:</label>
+                    <input type="text" class="form-control" autocomplete="false" [(ngModel)]="categoryName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label>IsActive:</label>
+                    <select class="form-control" [(ngModel)]="active">
+                        <option value="1">Active</option>
+                        <option value="0">InActive</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-primary btn-md col-md-5" (click)="addCategory()">Submit</button>
+            </div>
+        </div>
+        <div id="subcat" class="tab-pane fade in active">
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label>Category Name:</label>
+                    <select class="form-control" [(ngModel)]="addSub.categoryId">
+                        <option *ngFor="let c of actCat" value="{{c.id}}">{{c.categoryName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label>Enter Subcategory Name:</label>
+                    <input type="text" class="form-control" autocomplete="false" [(ngModel)]="addSub.subcategoryName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label>IsActive:</label>
+                    <select class="form-control" [(ngModel)]="addSub.active">
+                        <option value="1">Active</option>
+                        <option value="0">InActive</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-primary btn-md col-md-5" (click)="addSubCat()">Submit</button>
+            </div>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sl No.</th>
+                        <th>Category Name</th>
+                        <th>IsActive</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of category let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{c.categoryName}}</td>
+                        <td>{{c.active}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" (click)="update(contents,c)">Update</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- <div id="menu4" class="tab-pane fade">
+                <div class="row">
+                        <div class="form-group col-md-5">
+                            <label>Category Name:</label>
+                            <select class="form-control" [(ngModel)]="updateCatId" (ngModelChange)="onChangeCat(updateCatId)">
+                                <option disabled></option>
+                                <option *ngFor="let c of actCat" value="{{c.id}}">{{c.categoryName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sl No.</th>
+                            <th>Category Name</th>
+                            <th>IsActive</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of category let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{c.categoryName}}</td>
+                            <td>{{c.active}}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" (click)="update(contents,c)">Update</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> -->
+        <div id="menu2" class="tab-pane fade">
+            <h3>Add Product</h3>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label>Category:</label>
+                    <select class="form-control" [(ngModel)]="addProduct.categoryId" (ngModelChange)="onChangeCat(addProduct.categoryId)">
+                        <option *ngFor="let c of actCat" value="{{c.id}}">{{c.categoryName}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>SubCategory:</label>
+                    <select class="form-control" [(ngModel)]="addProduct.subcategoryId">
+                        <option *ngFor="let c of subCatData" value="{{c.subId}}">{{c.subCategoryName}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Product Name:</label>
+                    <input type="text" class="form-control" autocomplete="false" [(ngModel)]="addProduct.productName">
+                </div>
+            </div>
+
+            <form [formGroup]="invoiceForm">
+                <div formArrayName="itemRows">
+                    <!-- Check the correct way to iterate your form array -->
+                    <div *ngFor="let itemrow of invoiceForm.controls.itemRows.controls; let i=index ;let first = first" [formGroupName]="i">
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <label>Measurement: (Only Numeric Value)</label>
+                                <input type="number" (keyup)="onKey($event)" class="form-control" formControlName="quantity" autocomplete="false" placeholder="100 or 200 0r 750">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label>Type :</label>
+                                <select class="form-control" formControlName="type">
+                                    <option value="Unit" selected>Unit</option>
+                                    <option value="Kg">k.G</option>
+                                    <option value="Grams">Grams</option>
+                                    <option value="Pc">Pc</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label>Price: (Only Numeric Value)</label>
+                                <input type="number" (keyup)="onKey($event)" class="form-control" autocomplete="false" formControlName="sellingPrice" placeholder="25rs or 120rs">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <img src="assets/images/close.png" height="45" width="45" style="margin-top: 25px;" *ngIf="!first" (click)="deleteRow(i)"
+                                />
+                                <img src="assets/images/add.png" (click)="addNewRow()" height="45" width="45" style="margin-top: 20px;margin-left: 10px;"
+                                    *ngIf="first" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+            <button type="button" class="btn btn-primary" (click)="addProducts()">Add Product</button>
+
+        </div>
+        <div id="menu3" class="tab-pane fade">
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label>Category:</label>
+                    <select class="form-control" [(ngModel)]="addProduct.categoryId" (ngModelChange)="onChangeCat(addProduct.categoryId)">
+                        <option *ngFor="let c of actCat" value="{{c.id}}">{{c.categoryName}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>SubCategory:</label>
+                    <select class="form-control" [(ngModel)]="addProduct.subcategoryId">
+                        <option *ngFor="let c of subCatData" value="{{c.subId}}">{{c.subCategoryName}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <button type="button" class="btn btn-primary" (click)="search()">Search Product</button>
+                </div>
+            </div>
+           
+            <hr>
+            <div *ngIf="productDetailss.length>0">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sl No.</th>
+                            <th>Category Name</th>
+                            <th>Product Name</th>
+                            <th>Measurement</th>
+                            <th>Price</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of productDetailss   let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{c.categoryName}}</td>
+                            <td>{{c.productName}}</td>
+                            <td>{{c.quantity}} {{c.type}}</td>
+                            <td>{{c.sellingPrice}}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" (click)="updateProduct(updatePopup,c)">Update</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
+            </div>
+        </div>
+        <ng-template #updatePopup let-c="close" let-d="dismiss">
+            <div class="modal-header">
+                <h4 class="modal-title">Product Update</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label>Category:</label>
+                        <input type="text" disabled readonly class="form-control" autocomplete="false" [(ngModel)]="product.categoryName">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>SubCatgory:</label>
+                        <select class="form-control" [(ngModel)]="product.subCatId">
+                            <option *ngFor="let c of subCatData" value="{{c.subId}}">{{c.subCategoryName}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Product Name:</label>
+                        <input type="text" class="form-control" autocomplete="false" [(ngModel)]="product.productName">
+                    </div>
+                </div>
+                <form [formGroup]="updateForm">
+                    <div formArrayName="itemRows">
+                        <div *ngFor="let itemrow of updateForm.controls.itemRows.controls; let i=index ;let first = first" [formGroupName]="i">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Measurement:</label>
+                                    <input type="number" (keyup)="onKey($event)" class="form-control" formControlName="quantity" autocomplete="false" placeholder="100 or 200 0r 750">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label>Type:</label>
+                                    <input type="text" disabled readonly class="form-control" autocomplete="false" formControlName="type">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Price:</label>
+                                    <input type="number" (keyup)="onKey($event)" class="form-control" autocomplete="false" formControlName="sellingPrice" placeholder="25rs or 120rs">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <img src="assets/images/close.png" height="45" width="45" style="margin-top: 25px;" *ngIf="!first" (click)="deleteUpdateRow(i)"
+                                    />
+                                    <img src="assets/images/add.png" (click)="addUpdateRow()" height="45" width="45" style="margin-top: 20px;margin-left: 10px;"
+                                        *ngIf="first" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <button type="button" class="btn btn-primary" (click)="updateProducts()">Update Product</button>
+            </div>
+            <div class="modal-footer" style="margin: 0px;">
+                <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+            </div>
+        </ng-template>
+    </div>
+</section>
+<ng-template #contents let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Category Update</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label>Category Name:</label>
+            <input type="text" class="form-control" autocomplete="false" [(ngModel)]="cat.categoryName">
+        </div>
+        <div class="form-group">
+            <label>IsActive:</label>
+            <select class="form-control" [(ngModel)]="cat.active">
+                <option value="1">Active</option>
+                <option value="0">InActive</option>
+            </select>
+        </div>
+        <button type="button" class="btn btn-primary btn-md" (click)="updateCat()">Submit</button>
+    </div>
+    <div class="modal-footer" style="margin: 0px;">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>

@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="header">
+    <h2>Report</h2>
+</div>
+<section >
+    <div  class="result">
+        <div  class="row">
+            <div class="col-md-3">
+                <my-date-picker [options]="myDatePickerOptions" [placeholder]="start" (dateChanged)="onDateChanged($event)"></my-date-picker>
+            </div>
+            <div class="col-md-3">
+                <my-date-picker [options]="myDatePickerOptionss" [placeholder]="end" (dateChanged)="onDateChangedd($event)"></my-date-picker>
+            </div>
+           
+            <div class="col-md-3 form-group" style="margin-top: -10px;">
+                <button class="btn btn-default" (click)="submit()">Submit</button>
+            </div>
+        </div>
+    </div>
+</section>
+<hr>
+<section>
+    <div id="print-section" class="result">
+        <div *ngIf="orderHistory?.length > 0 else error">
+        <table class="table table-hover">
+            <thead>
+                
+                <tr>
+                    <td>Product Name</td>
+                    <td>Total Quantity</td>
+                    <tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of orderHistory"><td>{{c.product_name}}</td><td>{{c.totalQuantity}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="print()">print</button>
+    </div>
+    
+        <ng-template #error>NO Record Found</ng-template>
+    </div>
+</section>

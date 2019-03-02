@@ -1,0 +1,1052 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>Boombox|Main</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            $('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function(event) {
+                event.preventDefault();
+                $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
+                $('.navbar-bootsnipp .bootsnipp-search').toggleClass('open');
+                $('a[href="#toggle-search"]').closest('li').toggleClass('active');
+
+                if ($('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+                    /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
+                    setTimeout(function() {
+                        $('.navbar-bootsnipp .bootsnipp-search .form-control').focus();
+                    }, 100);
+                }
+            });
+
+            $(document).on('keyup', function(event) {
+                if (event.which == 27 && $('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+                    $('a[href="#toggle-search"]').trigger('click');
+                }
+            });
+
+
+
+
+        });
+
+
+        $(document).ready(function() {
+            $('.carousel[data-type="multi"] .item').each(function() {
+                var next = $(this).next();
+                if (!next.length) {
+                    next = $(this).siblings(':first');
+                }
+                next.children(':first-child').clone().appendTo($(this));
+
+                for (var i = 0; i < 4; i++) {
+                    next = next.next();
+                    if (!next.length) {
+                        next = $(this).siblings(':first');
+                    }
+
+                    next.children(':first-child').clone().appendTo($(this));
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <nav class="[ navbar navbar-inverse navbar-fixed-top ][ navbar-bootsnipp animate ]" role="navigation" style="background-color:black;">
+        <div class="[ container ]">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="[ navbar-header ]">
+                <button type="button" class="[ navbar-toggle ]" data-toggle="collapse" data-target="#bs-example-navbar-collapse">
+                    <span class="[ sr-only ]">Toggle navigation</span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                </button>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="[ collapse navbar-collapse ]" id="bs-example-navbar-collapse">
+                <ul class="[ nav navbar-nav navbar-left ]">
+
+                    <li><a href="#" class="[ animate ]" data-toggle="dropdown">Demos<span class="[ caret ]"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Original</a>
+                            </li>
+                            <li><a href="#">Another Gag</a>
+                            </li>
+                            <li><a href="#">Animatrix</a>
+                            </li>
+                            <li><a href="#">Affiliate</a>
+                            </li>
+                            <li><a href="#">Sunshine</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" data-toggle="dropdown">Features<span class="[ caret ]"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Header Example</a>
+                            </li>
+                            <li><a href="#">Footer Example</a>
+                            </li>
+                            <li><a href="#">Strip Examples</a>
+                            </li>
+                            <li><a href="#">Featured Area Types</a>
+                            </li>
+                            <li><a href="#">Page Layouts</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="[ dropdown ]">
+                        <a href="#" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown">Zombify <span class="[ caret ]"></span><span class='label hot'>HOT</span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" class="animate ">Poll</a>
+                            </li>
+                            <li><a href="#" class="animate">Personality Quiz</a>
+                            </li>
+                            <li><a href="#" class="animate">Trivia Quiz</a>
+                            </li>
+                            <li><a href="#" class="animate ">Story</a>
+                            </li>
+                            <li><a href="#" class="animate ">List</a>
+                            </li>
+                            <li><a href="#" class="animate ">Countdown</a>
+                            </li>
+                            <li><a href="#" class="animate ">Open List</a>
+                            </li>
+                            <li><a href="#" class="animate ">Ranked List</a>
+                            </li>
+                            <li><a href="#" class="animate ">Meme</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="animate" href="#register">People</a>
+                    </li>
+                    <li><a class="animate" href="#login">Animals</a>
+                    </li>
+                    <li><a class="animate" href="#register">Extreme</a>
+                    </li>
+                    <li class="[ dropdown ]"><a href="#" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown">Shop<span class="[ caret ]"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Single Product Page</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li><a class="animate" href="#register">Buy<span class='label hot'>HOT</span></a>
+                    </li>
+                    <li><a class="animate" href="#login">Docs</a>
+                    </li>
+                    <li><a class="animate" href="#register"><span class="glyphicon glyphicon-th-list"></span></a>
+                    </li>
+                    <li><a class="animate" href="#login"><span class="fa fa-share-alt"></span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid " style="margin-top:50px;background-color:yellow;height:75px;border:none;">
+        <!-- Brand and toggle get grouped for better mobile display -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 col-lg-offset-1 col-sm-offset-1 col-md-offset-1 col-xs-offset-1">
+                <div class="copyright">
+                    <ul class="nav nav-pills payments" style="font-size:18px;margin-top:20px;white-space:nowrap;color:black;">
+
+                        <li>
+                            <h4 style="margin-top:-1px;"><img src="Image/original-logo.png" class="img-responsive"></h4>
+                        </li>
+                        <li><i class="fa fa-clock-o"> Latest</i>
+                        </li>
+                        <li><span class="fa fa-flash"> Trending</span>
+                        </li>
+                        <li><span class="glyphicon glyphicon-fire"> HOT</span>
+                        </li>
+                        <li><span class="fa fa-star"> Popular</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1 col-lg-offset-1 col-sm-offset-1 col-md-offset-1 col-xs-offset-1">
+                <span class="fa fa-briefcase" style="color:black;margin-top:30px;"></span>
+            </div>
+            <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+                <a href="C:\Users\user\Desktop\Boombox\Login.html"><span class="glyphicon glyphicon-user" style="color:black;margin-top:30px;"></span></a>
+            </div>
+            <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+                <button type="button" class="btn btn-default" style="background-color:black;color:white;margin-top:20px;">Compose</button>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+
+    <div class="container">
+    <div class="row">
+                       <div class="smiley_section">
+                         <a href="#" title="smiley0">
+                               <img src="Image\if_6_smiley_2639084.png" class="img-responsive">
+                            </a>
+                            <a href="#" title="smiley1">
+                               <img src="Image\if_12_smiley_2639061 (1).png" class="img-responsive">
+                            </a>
+                            <a href="#"  title="smiley2">
+                                 <img src="Image\if_19_smiley_2639068.png" class="img-responsive" >
+                            </a>
+                            <a href="#"  title="smiley3">
+                                 <img src="Image\if_19_smiley_2639068.png" class="img-responsive" >
+                            </a>
+                            <a href="#"  title="smiley4">
+                                <img src="Image\if_19_smiley_2639068.png" class="img-responsive">
+                            </a>
+                            <a href="#"  title="smiley5">
+                                <img src="Image\if_22_smiley_2639072.png" class="img-responsive">
+                            </a>
+                        
+                            <a href="#"  title="smiley6">
+                                <img src="Image\if_22_smiley_2639072.png" class="img-responsive">
+                            </a>
+                            <a href="#"  title="smiley7">
+                                <img src="Image\if_6_smiley_2639084.png" class="img-responsive">
+                            </a>
+                            <a href="#" title="smiley8">
+                                <img src="Image\if_6_smiley_2639084.png" class="img-responsive">
+                            </a>
+                            <a href="#"  title="smiley9">
+                                <img src="Image\if_12_smiley_2639061 (1).png" class="img-responsive">
+                            </a>
+                            <a href="#" title="smiley10">
+                                <img src="Image\if_12_smiley_2639061 (1).png" class="img-responsive">
+                            </a>
+                        </div>
+                    </div>
+        <div>
+            <div class="col-md-12 ">
+                <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000000" id="myCarousel">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                          <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12 item_cntr">
+                            <div class='item_desc'>Trivia: Can you indentify the world’s most famous...</div>
+                              <a href="#">
+                                <img src="Image\1-4-200x150 - Copy.png" class="img-responsive">
+                              </a>
+                          </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12 item_cntr">
+                              <a href="#"><img src="Image\1-7-1-1-200x150 - Copy.png" class="img-responsive"></a>
+                              <div class='item_desc'>Trivia: Can you indentify the world’s most famous...</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12 item_cntr">
+                                <a href="#"><img src="Image\5-200x150 - Copy.png" class="img-responsive">
+                                </a>
+                              <div class='item_desc'>Trivia: Can you indentify the world’s most famous...</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12 item_cntr">
+                                <a href="#"><img src="Image\7_hot_music-200x150 - Copy.jpg" class="img-responsive">
+                                </a>
+                              <div class='item_desc'>Trivia: Can you indentify the world’s most famous...</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12 item_cntr">
+                                <a href="#"><img src="Image\9-200x150 - Copy.jpg" class="img-responsive">
+                                </a>
+                              <div class='item_desc'>Trivia: Can you indentify the world’s most famous...</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12 item_cntr">
+                                <a href="#"><img src="Image\16-200x150 - Copy.jpg" class="img-responsive">
+                                </a>
+                              <div class='item_desc'>Trivia: Can you indentify the world’s most famous...</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12 item_cntr">
+                              <a href="#"><img src="Image\17-200x150 - Copy.png" class="img-responsive"></a>
+                              <div class='item_desc'>Trivia: Can you indentify the world’s most famous...</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12 item_cntr">
+                              <a href="#"><img src="Image\Boombox_Zombify_Poll_Featured_Image-200x150 - Copy.jpg" class="img-responsive">
+                              <div class='item_desc'>Trivia: Can you indentify the world’s most famous...</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+            </div>
+            <div class="cb"></div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row bage_row">
+            <div class="col-md-7 badge_trending_sec">
+              <a class="badge_trending" href="javascript:void(0)" title="Trending">
+                <img src="Image/9-200x150 - Copy.jpg" class="img-responsive" style="width:100%;">
+                <div class="badge_over_lay"></div>
+                <div class="badge_icon_sec"><a href="javascript:void(0)">
+                <span class="circle post-number"><i class="icon icon-trending"></i>1</span>
+                <span class="circle post-number"><i class="icon icon-trending"></i></span></a></div>
+                  <div class="sec_details">
+                    <div class="replay_view_sec">
+                      <span><i class="fa fa-share" aria-hidden="true"></i>
+                      1.2k</span>
+                      <span><i class="fa fa-eye" aria-hidden="true"></i>
+                      29.5k</span>
+                    </div>
+                    <h2>25 Amazing Facts You Didn’t Know About Wild Animals</h2>
+                    <p class="created_info"><span>by</span> <a href="javascript:void(0)">Mason Richards</a><span>2 years ago</span></p>
+                  </div>
+              </a>
+            </div>
+            <div class="col-md-5 ">
+              <div class="badge_trending_sec">
+                <a class="badge_trending" href="javascript:void(0)" title="Trending">
+                  <img src="Image/1-4-200x150 - Copy.png" class="img-responsive" style="width:100%;height:200px;">
+                  <div class="badge_over_lay"></div>
+                  <div class="badge_icon_sec"><a href="javascript:void(0)">
+                  <span class="circle post-number"><i class="icon icon-trending"></i></span>
+                  <span class="circle post-number"><i class="icon icon-trending"></i></span></a></div>
+                  <div class="sec_details">
+                    <div class="replay_view_sec">
+                      <span><i class="fa fa-share" aria-hidden="true"></i>
+                      882</span>
+                      <span><i class="fa fa-eye" aria-hidden="true"></i>
+                      647</span>
+                    </div>
+                    <h2 style="font-size: 24px;">Story :Best movies in 2018 based on comics</h2>
+                    <p class="created_info"><span>by</span> <a href="javascript:void(0)">Albert Shephard</a><span> 1 years ago</span></p>
+                  </div>
+                </a>
+              </div>
+              <div class="badge_trending_sec">
+               <a class="badge_trending" href="javascript:void(0)" title="Trending">
+                <img src="Image/q1-360x270 (1).jpg" class="img-responsive" style="width:100%;height:226px;margin-top:10px;">
+                <div class="badge_over_lay"></div>
+                <div class="badge_icon_sec"><a href="javascript:void(0)">
+                  <span class="circle post-number"><i class="icon icon-trending"></i></span></a>
+                </div>
+                  <div class="sec_details">
+                    <div class="replay_view_sec">
+                      <span><i class="fa fa-share" aria-hidden="true"></i>
+                      882</span>
+                      <span><i class="fa fa-eye" aria-hidden="true"></i>
+                      647</span>
+                    </div>
+                    <h2 style="font-size: 24px;">Poll: Vote for the stylish ones</h2>
+                    <p class="created_info"><span>by</span> <a href="javascript:void(0)">Mason Richards</a><span> 2 years ago</span></p>
+                  </div>
+              </a>
+              </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-8">
+              <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/bridge.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>29.5k</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1.2k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div><a href="javascript:void(0)" class="grey_link">QUIZ</a></div>
+                  <a href="#" class="mid_desc">Trivia: Can you indentify the world’s most famous bridges?</a>
+                  <p class="grey_txt">Guess the name, city, country, movie, age or other fact about the bridge.</p>
+                  <div class="created_info_sec">
+                    <img src="Image/lipstick.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">Lara Parkar</a><span style="padding-left: 4px;">3 weeks ago</span></p>
+                  </div>
+                </div>
+              </div>
+             <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/bridge.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>29.5k</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1.2k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div><a href="javascript:void(0)" class="grey_link">QUIZ</a></div>
+                  <a href="#" class="mid_desc">Audio: Embed from Soundcloud</a>
+                  <p class="grey_txt">This text added and will be visible in excerpt field only.</p>
+                  <div class="created_info_sec">
+                    <img src="Image/user.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">Albert Shephards</a><span style="padding-left: 4px;">3 months ago</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="cb"></div>
+
+               <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/giftspacking.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>243</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1.3k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div><a href="javascript:void(0)" class="grey_link">story</a></div>
+                  <a href="#" class="mid_desc">Story: Everything you wanted to know about GIFTS but were afraid to ask!</a>
+                  <p class="grey_txt">Want to learn how to choose a gift for your family member or colleague? Want to know where to buy and how to find suitable...</p>
+                  <div class="created_info_sec">
+                    <img src="Image/lipstick.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">Lara Parkar</a><span style="padding-left: 4px;">3 months ago</span></p>
+                  </div>
+                </div>
+              </div>
+             <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/girlinbad.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>360</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>992</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div><a href="javascript:void(0)" class="grey_link">PEOPLE</a>
+                  <a href="javascript:void(0)" class="grey_link">PHOTOGRAPHY</a>
+                <a href="javascript:void(0)" class="grey_link">WOMEN</a></div>
+                  <a href="#" class="mid_desc">Image: Girl in lingerie sitting on the bed</a>
+                  <p class="grey_txt">This text added and will be visible in excerpt field only.</p>
+                  <div class="created_info_sec">
+                    <img src="Image/user.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">Albert Shephards</a><span style="padding-left: 4px;">11 months ago</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="cb"></div>
+                    <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/wine.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>243</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1.3k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div> <a href="javascript:void(0)" class="grey_link">DIY</a>
+                  <a href="javascript:void(0)" class="grey_link">RANKEDLIST</a></div>
+                  <a href="#" class="mid_desc">Vote up or down and select best present for birthday</a>
+                  <p class="grey_txt">Vote up or down if you think one of these deserve to be on 1st place.</p>
+                  <div class="created_info_sec">
+                    <img src="Image/lipstick.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">Lara Parkar</a><span style="padding-left: 4px;">1 YEAR ago</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/wine.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>316</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1.1k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div>
+                    <a href="javascript:void(0)" class="grey_link">DIY</a>
+                  <a href="javascript:void(0)" class="grey_link">RANKEDLIST</a></div>
+                  <a href="#" class="mid_desc">Vote up or down and select best present for birthday</a>
+                  <p class="grey_txt">Vote up or down if you think one of these deserve to be on 1st place.</p>
+                  <div class="created_info_sec">
+                    <img src="Image/lipstick.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">Lara Parkar</a><span style="padding-left: 4px;">1 year ago</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="cb"></div>
+               <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/woo.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>243</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1.3k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div> <a href="javascript:void(0)" class="grey_link">MUSIC</a>
+                  <a href="javascript:void(0)" class="grey_link">SINGLE</a></div>
+                  <a href="#" class="mid_desc">Woo Single #2</a>
+                  <div class="cb"></div>
+                  <div class="grey_txt fl">
+                    <div class="orig_price">$3.00</div><div class="dis_price"><i class="fa fa-tag" aria-hidden="true"></i>$2.00</div>
+                  </div>
+                  <div class="fr">
+                    <a href="#" class="add_to_cart">ADD TO CART</a>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="created_info_sec">
+                    <img src="Image/lipstick.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">Lara Parkar</a><span style="padding-left: 4px;">1 YEAR ago</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/building.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>316</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1.1k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div>
+                    <a href="javascript:void(0)" class="grey_link">TRAVEL</a>
+                  <a href="javascript:void(0)" class="grey_link">CRAZY</a>
+                  <a href="javascript:void(0)" class="grey_link">VIDEO</a></div>
+                  <a href="#" class="mid_desc">Video: Busy city timelapse</a>
+                  <p class="grey_txt">This text added and will be visible in excerpt field only.</p>
+                  <div class="created_info_sec">
+                    <img src="Image/user.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">Albert Shephard</a><span style="padding-left: 4px;">1 year ago</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="cb"></div>
+
+                <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/umbrela.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>8.9k</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1.2k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div> <a href="javascript:void(0)" class="grey_link">EXTREME</a>
+                  <a href="javascript:void(0)" class="grey_link">OPENLIST</a></div>
+                  <a href="#" class="mid_desc">VOpen List: The Best Places To Go Camping Around the World</a>
+                  <p class="grey_txt">Share the Best Place Where You Ever Camped!</p>
+                  <div class="created_info_sec">
+                    <img src="Image/girlsglass.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)"> Anna J. Taylor</a><span style="padding-left: 4px;">1 year ago</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/breakfast.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>316</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1.1k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div>
+                    <a href="javascript:void(0)" class="grey_link">TASTY</a>
+                  <a href="javascript:void(0)" class="grey_link">LIST</a></div>
+                  <a href="#" class="mid_desc">5 Quick and Easy Breakfast Recipes with Super Simple Ingredients.</a>
+                  
+                  <div class="created_info_sec">
+                    <img src="Image/lipstick.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">Lara Parkar</a><span style="padding-left: 4px;">1 year ago</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="cb"></div>
+                <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/rat.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>5.3k</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1.1k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div> <a href="javascript:void(0)" class="grey_link">ANIMAL</a>
+                  <a href="javascript:void(0)" class="grey_link">QUIZ</a>
+                  <a href="javascript:void(0)" class="grey_link">DOG</a></div>
+                  <a href="#" class="mid_desc">Personality Quiz: What pet is just right for you?</a>
+                  <p class="grey_txt">This quiz will help you to make right decision.</p>
+                  <div class="created_info_sec">
+                    <img src="Image/john.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">John Smith</a><span style="padding-left: 4px;">1 year ago</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/mountain.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>10.1k</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1.2k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div>
+                    <a href="javascript:void(0)" class="grey_link">TRAVEL</a>
+                  <a href="javascript:void(0)" class="grey_link">EXTREME</a>
+                  <a href="javascript:void(0)" class="grey_link">PAGINATED POST</a></div>
+                  <a href="#" class="mid_desc">Paginated Post: 9 Best Places to Go Camping Around the World</a>
+                  <p class="grey_txt">Find the next place to have a fabulous camping!</p>
+                  <div class="created_info_sec">
+                    <img src="Image/julia.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">Julia Robbins</a><span style="padding-left: 4px;">1 year ago</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="cb"></div>
+
+              <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/camera.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>5.7k</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>547</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div> <a href="javascript:void(0)" class="grey_link">SALE</a>
+                  <a href="javascript:void(0)" class="grey_link">AFFILATEPOST</a></div>
+                  <a href="#" class="mid_desc">SALE: Camera Strada X-100</a>
+                  <div class="cb"></div>
+                  <div class="grey_txt fl" style="margin-top: 12px;">
+                    <div class="orig_price">$120.00</div><div class="dis_price"><i class="fa fa-tag" aria-hidden="true"></i>$99.00</div>
+                  </div>
+                  <div class="fr">
+                    <a href="#" class="add_to_cart">CHECK IT OUT</a>
+                  </div>
+                  <div class="cb"></div>
+                  <div class="created_info_sec" style="margin-top: 12px;">
+                    <img src="Image/john.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">John Smith</a><span style="padding-left: 4px;">1 year ago</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/wooalbum.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>243</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1.3k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div> <a href="javascript:void(0)" class="grey_link">MUSIC</a>
+                  <a href="javascript:void(0)" class="grey_link">ALBUM/a></div>
+                  <a href="#" class="mid_desc">Woo Single #2</a>
+                  <div class="cb"></div>
+                  <div class="grey_txt fl">
+                   <div class="dis_price"><i class="fa fa-tag" aria-hidden="true"></i>$9.00</div>
+                  </div>
+                  <div class="fr">
+                    <a href="#" class="add_to_cart">ADD TO CART</a>
+                  </div>
+                  <div class="cb"></div>
+                  
+                </div>
+              </div>
+              <div class="cb"></div>
+<div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/girlaudio.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>9K</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div> <a href="javascript:void(0)" class="grey_link">PEOPLE</a>
+                  <a href="javascript:void(0)" class="grey_link">NSFW</a>
+                  <a href="javascript:void(0)" class="grey_link">MORE</a></div>
+                  <a href="#" class="mid_desc">People Whose Selfie Addiction Knows No Bounds</a>
+                  <p class="grey_txt">Psychologists expose the personality traits of a selfie addict, from being extroverted to a social exhibitionist.</p>
+                  <div class="created_info_sec">
+                    <img src="Image/julia.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">julia Robbins</a><span style="padding-left: 4px;">1 YEAR ago</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mid_box_cntr">
+                <div class="mid_box">
+                  <a href="javascript:void(0)">
+                    <img src="Image/girlaudio.jpg" class="img-responsive">
+                  </a>
+                  <div class="replay_view_sec2">
+                    <span class="view_sec"><i class="fa fa-eye" aria-hidden="true"></i>7k</span>
+                    <span class="replay_sec"><i class="fa fa-share" aria-hidden="true"></i>1.1k</span>
+                  </div>
+                </div>
+                <div class="bottom_desc_cntr">
+                  <div>
+                    <a href="javascript:void(0)" class="grey_link">PEOPLE</a>
+                  <a href="javascript:void(0)" class="grey_link">MOOD</a></div>
+                  <a href="#" class="mid_desc">7 Hot Music Festivals You Can’t Miss This Summer</a>
+                  <p class="grey_txt">Sometimes good music can inspire you as nothing else!</p>
+                  <div class="created_info_sec">
+                    <img src="Image/john.jpg", alt="User">
+                    <p class="created_info"><span>by</span>
+                     <a href="javascript:void(0)">john Smith</a><span style="padding-left: 4px;">1 year ago</span></p>
+                  </div>
+                </div>
+              </div>
+             
+              <div class="cb"></div>
+            </div>
+            <div class="col-md-4">
+              <div class="subscribe_sec">
+                <div class="form_icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                 <div class="badge_icon_sec"><a href="javascript:void(0)">
+                    <span class="circle post-number"><i class="icon icon-trending"></i></span></a>
+                  </div>
+                  <h3>LIKE WHAT YOU'RE READING?</h3>
+                  <h4>subscribe to our top stories</h4>
+                  <form class="form-horizontal" style="margin-top:60px;">
+                      <div class="form-group">
+
+                          <div class="col-sm-10 sol-md-10 col-lg-10 col-xs-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-md-offset-1 col-xs-offset-1">
+                              <input type="email" class="form-control" id="email" placeholder="Enter email address">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="col-sm-10 sol-md-10 col-lg-10 col-xs-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1ol-md-offset-1 col-md-offset-1 col-xs-offset-1">
+                              <button type="submit" class="btn btn-default btn-lg" style="width:100%;background-color:yellow;">SUBSCRIBE</button>
+                              <div class="grey_txt" style="margin-top: 10px">Don't worry, we don't spam</div>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+              
+              <div class="treding_section">
+                <h3 class="text-center"><i class="fa fa-bolt" aria-hidden="true"></i>TRENDING</h3>
+                <div class="treding_box">
+                    <div class="treding_count">1</div>
+                    <img src="Image/treding_img1.png">
+                    <a href="#">Everything You Wanted to Know About Tattoo and Were Afraid To Ask</a>
+                </div>
+                <div class="treding_box">
+                    <div class="treding_count">2</div>
+                    <img src="Image/animal.jpg">
+                    <a href="#">25 Amazing Facts You Didn’t Know About Wild Animals</a>
+                </div>
+                <div class="treding_box">
+                    <div class="treding_count">3</div>
+                    <img src="Image/treding_img1.png">
+                    <a href="#">People Whose Selfie Addiction Knows No Bounds</a>
+                </div>
+              </div>
+              <div class="subscribe_sec">
+                <div class="form_icon"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+                 <div class="badge_icon_sec"><a href="javascript:void(0)">
+                    <span class="circle post-number"><i class="icon icon-trending"></i></span></a>
+                  </div>
+                  <h3 style="text-align:center">Become A Member</h3>
+                  <h2 style="text-align:center">Unleash Your Creativity</h2>
+                  <h4 style="text-align:center">and share your story with us!</h4>
+                  <a href="javascript:void(0)" class="btn btn-default btn-lg" style="width:60%;background-color:yellow;margin: 20px 0;">CREATE A POST</a>
+              </div>
+              <div class="become_member_sec">
+                <div>
+                    <h4>POPULAR MEMBERS</h4>
+                    <h5>Newest &nbsp Active &nbsp Popular</h5>
+                </div>
+                <div class="become_member_row">
+                    <img src="Image/582665e1cd716-bpthumb - Copy.png" class="img-responsive img-circle">
+                    <div class="become_member_desc">
+                      <span>Lara Parker</span>
+                      <p class="grey_txt">active 1 hour, 25 minutes ago</p>
+                    </div>
+                </div>
+                <div class="become_member_row">
+                    <img src="Image/user.jpg" class="img-responsive img-circle">
+                    <div class="become_member_desc">
+                      <span>Albert Shephard</span>
+                      <p class="grey_txt">active 5 hours, 11 minutes ago</p>
+                    </div>
+                </div>
+                <div class="become_member_row">
+                    <img src="Image/anna.jpg" class="img-responsive img-circle">
+                    <div class="become_member_desc">
+                      <span> Anna J. Taylor</span>
+                      <p class="grey_txt">active 1 month, 2 weeks ago</p>
+                    </div>
+                </div>
+                <div class="become_member_row">
+                    <img src="Image/tonny.jpg" class="img-responsive img-circle">
+                    <div class="become_member_desc">
+                      <span>Tony S. Olson</span>
+                      <p class="grey_txt">active 1 month, 2 weeks ago</p>
+                    </div>
+                </div>
+              </div>
+              <div class="circle social">
+                  <ul><li><a class="icon icon-facebook " href="#" title="Facebook" rel="nofollow" target="_blank"></a></li>
+                  </ul>
+              </div>
+            </div>
+            <div class="cb"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-8" style="margin-top: 20px">
+            <div class="fl">
+                <a href="#" class="add_to_cart next_prev" rel="prev"> <i class="fa fa-chevron-left"></i> <span class="text">Previous</span> </a>
+              </div>
+              <div class="fr">
+                    <a href="#" class="add_to_cart next_prev" rel="prev"><span class="text">Next</span><i class="fa fa-chevron-right"></i> </a>
+              </div>
+              <div class="cb"></div>
+        </div>
+        <div class="col-md-4">
+            <div style="margin-bottom: 0px;">
+                <h3 style="text-align:center;margin-top: 40px;">CONNECT WITH US</h3>
+                <div class="row">
+                    <div class="social_media_section">
+                        <a href="#" target="_blank" title="Facebook">
+                            <img src="Image/facebook_icon.png">
+                        </a>
+                        <a href="#" target="_blank" title="Pinterest">
+                            <img src="Image/pinterest-icon.png">
+                        </a>
+                        <a href="#" target="_blank" title="Snapchat">
+                            <img src="Image/xsnapchat-icon.png">
+                        </a>
+                        <a href="#" target="_blank" title="Twitter">
+                            <img src="Image/twitter-icon.png">
+                        </a>
+                        <a href="#" target="_blank" title="Youtube">
+                            <img src="Image/youtube_icon.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <footer class="footer1">
+        <div>
+
+            <div class="col-md-12 ">
+                <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                                <a href="#"><img src="Image\1-4-200x150 - Copy.png" class="img-responsive">
+                                </a>
+                                <a href="#" class="footer_img_desc"> Trivia: Can you indentify the world’s most famous...</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                                <a href="#"><img src="Image\1-7-1-1-200x150 - Copy.png" class="img-responsive">
+                                </a>
+                                <a href="#" class="footer_img_desc"> Trivia: Can you indentify the world’s most famous...</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                                <a href="#"><img src="Image\5-200x150 - Copy.png" class="img-responsive">
+                                </a>
+                                <a href="#" class="footer_img_desc"> Trivia: Can you indentify the world’s most famous...</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                                <a href="#"><img src="Image\7_hot_music-200x150 - Copy.jpg" class="img-responsive">
+                                </a>
+                                <a href="#" class="footer_img_desc"> Trivia: Can you indentify the world’s most famous...</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                                <a href="#"><img src="Image\9-200x150 - Copy.jpg" class="img-responsive">
+                                </a>
+                                <a href="#" class="footer_img_desc"> Trivia: Can you indentify the world’s most famous...</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                                <a href="#"><img src="Image\16-200x150 - Copy.jpg" class="img-responsive">
+                                </a>
+                                <a href="#" class="footer_img_desc"> Trivia: Can you indentify the world’s most famous...</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                                <a href="#"><img src="Image\17-200x150 - Copy.png" class="img-responsive">
+                                </a>
+                                <a href="#" class="footer_img_desc"> Trivia: Can you indentify the world’s most famous...</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                                <a href="#"><img src="Image\Boombox_Zombify_Poll_Featured_Image-200x150 - Copy.jpg" class="img-responsive">
+                                </a>
+                                <a href="#" class="footer_img_desc"> Trivia: Can you indentify the world’s most famous...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+              <div class="footer_comment_cntr">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+                    <h3 style="text-align:center;margin-top: 40px;">RECENT COMMENTS</h3>
+                    <div class="fl">
+                      <i class="fa fa-comment-o footer_comment_icn" aria-hidden="true"></i>
+                    </div>
+                    <div class="fl">
+                      <p> Lara Parker <span class="grey_txt">on</span></p>
+                      <h5><a href="#">25 Amazing Facts You Didn't Know About Wild Animals</a></h5>
+                    </div>
+                    <div class="cb"></div>
+                    <div class="fl">
+                      <i class="fa fa-comment-o footer_comment_icn" aria-hidden="true"></i>
+                    </div>
+                    <div class="fl">
+                      <p>Julia Robbins <span class="grey_txt">on</span></p>
+                      <h5>Denali National Park, Alaska</h5>
+                    </div>
+                    <div class="cb"></div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+                    <h3 style="text-align:center;margin-top: 40px;">CONNECT WITH US</h3>
+                    <div class="row">
+                        <div class="social_media_section">
+                            <a href="#" target="_blank" title="Facebook">
+                                <img src="Image/facebook_icon.png">
+                            </a>
+                            <a href="#" target="_blank" title="Pinterest">
+                                <img src="Image/pinterest-icon.png">
+                            </a>
+                            <a href="#" target="_blank" title="Snapchat">
+                                <img src="Image/xsnapchat-icon.png">
+                            </a>
+                            <a href="#" target="_blank" title="Twitter">
+                                <img src="Image/twitter-icon.png">
+                            </a>
+                            <a href="#" target="_blank" title="Youtube">
+                                <img src="Image/youtube_icon.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4 footer_disc_sec">
+                    <h3 class="text-center" style="margin-top: 40px;">DISCLAIMER</h3>
+                    <p>One of the earliest activities we engaged in when we first got into astronomy is the same one we like to show our children just as soon as their excitement about the night sky begins to surface. That is the fun of finding constellations.</p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                    <div class="copyright">
+                        <ul class="nav nav-pills payments">
+                            <li><a href="#">COMMUNITY</a></li>
+
+
+
+                            <li><a href="#">CONTACT US</a></li>
+
+
+
+                            <li><a href="#">PRIVACY</a></li>
+
+
+
+                            <li><a href="#">TERMS</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                    <div class="design">
+
+                        © 2017, All rights reserved
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

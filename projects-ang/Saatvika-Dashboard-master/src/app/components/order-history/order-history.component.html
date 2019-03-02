@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="header">
+  <h2>Order History</h2>
+</div>
+<div class="result">
+    <div *ngIf="orderHistory?.length > 0 else error">
+  <table class="table table-hover">
+      <thead>
+          <tr>
+        <td>Name</td><td>OrderId</td><td>Amount</td><td>Mobile Number</td><td>Address</td><td>Date</td><td>Status</td>
+        <tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of orderHistory" (click)="getData(content,c)">
+            <td> {{c.name}}</td><td>{{c.orderNumber}}</td><td>{{c.amount}} rs</td><td>{{c.mobileNumber}}</td><td>{{c.door_no}},{{c.apartment_name}},{{c.road_name}},{{c.city}},{{c.pin}}</td><td>{{c.date}}</td><td>{{c.status}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <ng-template #error>NO Record Found</ng-template>
+</div>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">OrderHistory Details</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="" *ngFor="let c of orderDetailsBYId">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title"><span>Product Name : </span> {{c.productName}}</p>
+         
+          <div class="row">
+            <div class="col-md-6"><p class="card-text"> <span>Quantity : </span>{{c.quantity}}</p></div>
+            <div class="col-md-6"><p class="card-text"><span>Price : </span>{{c.amount}}</p></div>
+          </div>
+       
+          <p class="card-text"><span>Type : </span>{{c.quantityType}} {{c.type}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="" style="text-align: right;margin-right: 15px;">
+    <p>Total Amount :{{order.amount}} rs  </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>

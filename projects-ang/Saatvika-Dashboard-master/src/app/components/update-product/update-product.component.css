@@ -1,0 +1,90 @@
+.data{
+    background: #fff;
+    border: #fff 1px solid;
+    overflow: hidden;
+    padding: 0px;
+    margin: 15px 0;
+}
+.headers{
+    background: #0e3871;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    height: 100%;
+}
+.headers h4{
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    margin: auto;
+
+}
+.data-content{
+    margin: 10px;
+    background: #fff;
+}
+.tab-pane{
+margin-left: 30px;
+    height: auto;
+    padding: 5px;
+    margin-top: 10px;
+}
+.tab-content{
+    text-align: left;
+    width: auto;
+    margin-right: 20px;
+}
+.tab-pane form{
+    width: fit-content;
+}
+.tab-pane table{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    border: 1px solid #d0d0d0;
+}
+.tab-pane table thead {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 10px;
+    background: #eceeef;
+}
+.tab-pane table tr {
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid #d0d0d0;
+}
+.tab-pane table tr th {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid #d0d0d0;
+}
+.tab-pane table tr td {
+    margin: 0px;
+    vertical-align: middle;
+    color: #212121;
+    padding: 0px !important;
+    text-align: center;
+    border: 1px solid #d0d0d0;
+    font-size: 14px;
+}
+form{
+    display: initial;
+}
+.modal-footer{
+    overflow: hidden !important;
+    width: 600px;
+    background: #fff !important;
+}
+.modal-header{
+    overflow: hidden !important;
+    width: 600px;
+    background: #fff !important;
+}
+.modal-body{
+    overflow: scroll !important;
+    width: 600px;
+    background: #fff !important;
+}

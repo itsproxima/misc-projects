@@ -1,0 +1,65 @@
+<h1>hello</h1>
+ <input type="text" (keyup)="onNameKeyUp($event)">
+ <button (click)="getProfile()">Get Profile</button>
+
+ <!-- 
+<h1>hello</h1>
+  
+  <form  novalidate #f="ngForm" (ngSubmit)="onsubmit(f)">
+
+       <div> name:  
+            <input 
+            type="text" 
+            class="form-control" 
+            [(ngModel)]="user.name"
+             name="name"
+            #userName="ngModel"
+            minlength="2"
+            required
+            >
+
+            <div *ngIf="userName.errors?.required && userName.touched" class="alert alert-danger" >name is required  </div>
+            <br><br> 
+       </div>
+
+       <div> email: 
+            <input type="text" class="form-control"
+            [(ngModel)]="user.email"
+             name="email"
+            #userEmail="ngModel"
+            minlength="2"
+            required>
+
+            <div *ngIf="userEmail.errors?.required && userEmail.touched" class="alert alert-danger" >email is required  </div>
+            <br><br> 
+       </div>
+
+       <div> phone:  
+
+            <input type="text" class="form-control"
+            [(ngModel)]="user.phone"
+             name="phone"
+            #userPhone="ngModel"
+            minlength="2"
+            required
+            >
+            <div *ngIf="userPhone.errors?.required && userPhone.touched" class="alert alert-danger" >name is required  </div>
+       </div>
+
+       <input type="submit" class="btn btn-success" value="submit">
+
+
+       <ul>
+         
+
+         <li *ngFor let user of users>
+              {{ users}}
+         </li>
+       </ul>
+    
+  </form>
+
+
+           
+
+ -->

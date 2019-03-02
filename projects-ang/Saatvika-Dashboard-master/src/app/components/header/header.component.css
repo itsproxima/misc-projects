@@ -1,0 +1,19 @@
+.header{
+    height: 64px;
+    overflow: hidden;
+    background: #052963;
+    width: 100%;
+    padding: 14px 14px;
+    box-sizing: border-box;
+}
+.header h2{
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 300;
+}
+.menu li a:hover{
+text-decoration:none;
+}

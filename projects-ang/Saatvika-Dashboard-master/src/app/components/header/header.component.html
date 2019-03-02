@@ -1,0 +1,83 @@
+<div class="page-container">
+    <!--/sidebar-menu-->
+    <div class="sidebar-menu">
+        <header class="logo">
+            <a>
+                <span id="logo">
+                    <h1>Saathvik</h1>
+                </span>
+                <!--<img id="logo" src="" alt="Logo"/>-->
+            </a>
+        </header>
+        <div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
+        <!--/down-->
+        <div class="down">
+            <a>
+                <img src="assets/images/logo.png" height="85" width="85">
+            </a>
+            <a>
+                <span class="name-caret">Admin</span>
+            </a>
+            <ul>
+                <li>
+                    <a (click)="logout()" class="tooltips">
+                        <span>Log out</span>
+                        <i class="lnr lnr-power-switch"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--//down-->
+        <div class="menu">
+            <ul id="menu">
+                <li>
+                    <a [routerLink]="['/dashboard']">
+                        <i class="fa fa-tachometer"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/addProduct']">
+                        <i class="fa fa-tachometer"></i>
+                        <span>Add Product</span>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a [routerLink]="['/OrderDetails']">
+                        <i class="fa fa-tachometer"></i>
+                        <span>Order Details</span>
+                    </a>
+                </li> -->
+                
+                <li>
+                    <a [routerLink]="['/OrderHistory']">
+                        <i class="fa fa-tachometer"></i>
+                        <span>Order History</span>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a [routerLink]="['/Report']">
+                        <i class="fa fa-tachometer"></i>
+                        <span>Itemised Order</span>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/Delivery']">
+                        <i class="fa fa-tachometer"></i>
+                        <span>Assign Delivery date</span>
+                    </a>
+                </li><li>
+                    <a [routerLink]="['/bulkUpload']">
+                        <i class="fa fa-tachometer"></i>
+                        <span>Bulk upload</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<ng4-loading-spinner></ng4-loading-spinner>

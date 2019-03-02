@@ -1,0 +1,16 @@
+HTTrack3.48-21 launched on Sun, 15 Jul 2018 04:26:37 at https://colorlib.com/polygon/elaadmin/
+(httrack https://colorlib.com/polygon/elaadmin/ )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+04:27:22	Error: 	"Not Found" (404) at link https://colorlib.com/polygon/elaadmin/css/lib/owl.video.play.png (from https://colorlib.com/polygon/elaadmin/css/lib/owl.carousel.min.css)
+04:28:28	Error: 	"Not Found" (404) at link https://colorlib.com/polygon/elaadmin/index2.html (from https://colorlib.com/polygon/elaadmin/email-compose.html)
+04:28:30	Error: 	"Not Found" (404) at link https://colorlib.com/polygon/elaadmin/widget.html (from https://colorlib.com/polygon/elaadmin/email-compose.html)
+04:28:30	Error: 	"Not Found" (404) at link https://colorlib.com/polygon/elaadmin/app-email-compose.html (from https://colorlib.com/polygon/elaadmin/email-read.html)
+04:28:30	Error: 	"Not Found" (404) at link https://colorlib.com/polygon/elaadmin/pages-profile.html (from https://colorlib.com/polygon/elaadmin/page-invoice.html)
+
+HTTrack Website Copier/3.48-21 mirror complete in 1 minutes 55 seconds : 510 links scanned, 504 files written (19758080 bytes overall) [8007870 bytes received at 69633 bytes/sec], 17017706 bytes transferred using HTTP compression in 456 files, ratio 28%, 63.7 requests per connection
+(5 errors, 0 warnings, 0 messages)
